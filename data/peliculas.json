@@ -1,0 +1,179 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "modelo": "iPhone 15 Pro Max",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 2,
+      "modelo": "iPhone 15",
+      "compativel": true,
+      "compatibilidade": ["iPhone 15", "iPhone 14", "iPhone 13"],
+      "vip": false
+    },
+    {
+      "id": 3,
+      "modelo": "Samsung Galaxy S24 Ultra",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 4,
+      "modelo": "Samsung Galaxy S24",
+      "compativel": true,
+      "compatibilidade": ["Galaxy S24", "Galaxy S23", "Galaxy S22"],
+      "vip": false
+    },
+    {
+      "id": 5,
+      "modelo": "Samsung Galaxy A54",
+      "compativel": true,
+      "compatibilidade": ["Galaxy A54", "Galaxy A53", "Galaxy A52"],
+      "vip": false
+    },
+    {
+      "id": 6,
+      "modelo": "Google Pixel 8 Pro",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 7,
+      "modelo": "Google Pixel 8",
+      "compativel": true,
+      "compatibilidade": ["Pixel 8", "Pixel 7", "Pixel 6"],
+      "vip": false
+    },
+    {
+      "id": 8,
+      "modelo": "Xiaomi Redmi Note 12",
+      "compativel": true,
+      "compatibilidade": ["Redmi Note 12", "Redmi Note 11", "Redmi Note 10"],
+      "vip": false
+    },
+    {
+      "id": 9,
+      "modelo": "OnePlus 11 Pro",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 10,
+      "modelo": "Motorola Moto G84",
+      "compativel": true,
+      "compatibilidade": ["Moto G84", "Moto G73", "Moto G62"],
+      "vip": false
+    },
+    {
+      "id": 11,
+      "modelo": "iPhone 14 Pro",
+      "compativel": true,
+      "compatibilidade": ["iPhone 14 Pro", "iPhone 13 Pro", "iPhone 12 Pro"],
+      "vip": false
+    },
+    {
+      "id": 12,
+      "modelo": "Samsung Galaxy Z Fold 5",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 13,
+      "modelo": "Huawei P60 Pro",
+      "compativel": true,
+      "compatibilidade": ["P60 Pro", "P50 Pro", "P40 Pro"],
+      "vip": false
+    },
+    {
+      "id": 14,
+      "modelo": "Realme GT 3",
+      "compativel": true,
+      "compatibilidade": ["GT 3", "GT 2", "GT Neo 3"],
+      "vip": false
+    },
+    {
+      "id": 15,
+      "modelo": "Oppo Find X6 Pro",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 16,
+      "modelo": "iPhone 13 Pro Max",
+      "compativel": true,
+      "compatibilidade": ["iPhone 13 Pro Max", "iPhone 12 Pro Max", "iPhone 11 Pro Max"],
+      "vip": false
+    },
+    {
+      "id": 17,
+      "modelo": "Samsung Galaxy A34",
+      "compativel": true,
+      "compatibilidade": ["Galaxy A34", "Galaxy A33", "Galaxy A32"],
+      "vip": false
+    },
+    {
+      "id": 18,
+      "modelo": "Xiaomi 13 Ultra",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 19,
+      "modelo": "Google Pixel 7a",
+      "compativel": true,
+      "compatibilidade": ["Pixel 7a", "Pixel 6a", "Pixel 5a"],
+      "vip": false
+    },
+    {
+      "id": 20,
+      "modelo": "OnePlus Nord 3",
+      "compativel": true,
+      "compatibilidade": ["Nord 3", "Nord 2", "Nord CE 3"],
+      "vip": false
+    },
+    {
+      "id": 21,
+      "modelo": "Motorola Edge 40 Pro",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 22,
+      "modelo": "Huawei Nova 11",
+      "compativel": true,
+      "compatibilidade": ["Nova 11", "Nova 10", "Nova 9"],
+      "vip": false
+    },
+    {
+      "id": 23,
+      "modelo": "Realme C55",
+      "compativel": true,
+      "compatibilidade": ["C55", "C53", "C51"],
+      "vip": false
+    },
+    {
+      "id": 24,
+      "modelo": "Oppo Reno 10 Pro",
+      "compativel": false,
+      "compatibilidade": [],
+      "vip": true
+    },
+    {
+      "id": 25,
+      "modelo": "Vivo X90 Pro",
+      "compativel": true,
+      "compatibilidade": ["X90 Pro", "X80 Pro", "X70 Pro"],
+      "vip": false
+    }
+  ]
+}

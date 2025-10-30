@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela de Compatibilidade de Películas - Standalone</title>
+    <style>
+      .singlecontent table tr td {
+        background-color: white !important;
+        border: 1px solid #000;
+      }
+
+      /* Reset específico para evitar conflitos */
+      .ofcell-peliculas-container * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .ofcell-peliculas-container {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        /* padding: 20px; */
+        background: #f5f7fa;
+      }
+
+      .ofcell-peliculas-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        /* border-radius: 15px; */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .ofcell-peliculas-header {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .ofcell-peliculas-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 300;
+      }
+
+      .ofcell-peliculas-header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .ofcell-peliculas-search-container {
+        padding: 12px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .ofcell-peliculas-search-box {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .ofcell-peliculas-search-input {
+        width: 100%;
+        padding: 15px 50px 15px 20px;
+        border: 2px solid #4a5568;
+        border-radius: 25px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .ofcell-peliculas-search-input:focus {
+        outline: none;
+        border-color: #2d3748;
+        box-shadow: 0 0 0 3px rgba(45, 55, 72, 0.2);
+      }
+
+      .ofcell-peliculas-search-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+        font-size: 1.2rem;
+      }
+
+      .ofcell-peliculas-table-container {
+        /* padding: 30px; */
+        background-color: #fff !important;
+        overflow-x: auto;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .ofcell-peliculas-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        /* border-radius: 10px; */
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border: 1px solid #1a237e;
+      }
+
+      .ofcell-peliculas-table th {
+        background: #d9edf7;
+        color: white;
+        padding: 10px 15px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.8rem;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+      }
+
+      .ofcell-peliculas-table th:last-child {
+        border-right: none;
+      }
+
+      .ofcell-peliculas-table td {
+        padding: 10px 15px;
+        border-bottom: 1px solid #1a237e;
+        border-right: 1px solid #1a237e;
+        vertical-align: top;
+      }
+
+      .ofcell-peliculas-table td:last-child {
+        border-right: none;
+      }
+
+      .ofcell-peliculas-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .ofcell-peliculas-table tr:hover {
+        background-color: #f8f9fa;
+      }
+
+      .ofcell-peliculas-device-model {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 0.8rem;
+      }
+
+      .ofcell-peliculas-compatible-devices {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .ofcell-peliculas-device-tag {
+        /* background: #e3f2fd;
+        color: #1976d2;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500; */
+      }
+
+      .ofcell-peliculas-vip-indicator {
+        background: #dedede;
+        color: #25b33d;
+        padding: 4px;
+        /* border-radius: 20px; */
+        font-size: 0.85rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        text-decoration: none;
+      }
+
+      .ofcell-peliculas-vip-indicator:hover,
+      .ofcell-peliculas-vip-indicator:focus {
+        text-decoration: none;
+      }
+
+      .ofcell-peliculas-vip-row {
+        background: transparent;
+      }
+
+      .ofcell-peliculas-vip-row:hover {
+        background: #f8f9fa;
+      }
+
+      .ofcell-peliculas-html-content {
+        /* Estilos para conteúdo HTML personalizado */
+      }
+
+      .ofcell-peliculas-html-content button {
+        background: #6c757d;
+        color: white !important;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin: 2px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .ofcell-peliculas-html-content button:hover {
+        background: #5a6268;
+        transform: translateY(-1px);
+      }
+
+      .ofcell-peliculas-html-content a {
+        color: #6c757d;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .ofcell-peliculas-html-content button a {
+        color: white !important;
+      }
+
+      .ofcell-peliculas-html-content a:hover {
+        text-decoration: underline;
+      }
+
+      .ofcell-peliculas-html-content .highlight {
+        background: #fff3cd;
+        padding: 4px 8px;
+        border-radius: 4px;
+        border-left: 3px solid #ffc107;
+      }
+
+      .ofcell-peliculas-loading {
+        text-align: center;
+        padding: 20px;
+        color: #6c757d;
+      }
+
+      .ofcell-peliculas-no-results {
+        text-align: center;
+        padding: 40px;
+        color: #6c757d;
+      }
+
+      .ofcell-peliculas-error {
+        text-align: center;
+        padding: 20px;
+        color: #dc3545;
+        background: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        margin: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .ofcell-peliculas-header h1 {
+          font-size: 2rem;
+        }
+
+        .ofcell-peliculas-table-container {
+          /* padding: 15px; */
+          max-width: 100%;
+        }
+
+        .ofcell-peliculas-table th,
+        .ofcell-peliculas-table td {
+          /* padding: 15px 10px; */
+        }
+
+        .ofcell-peliculas-device-model {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body style="padding: 0; margin: 0">
+    <div class="ofcell-peliculas-container">
+      <div class="ofcell-peliculas-wrapper">
+        <!-- <div class="ofcell-peliculas-header">
+          <p>Encontre a película perfeita para seu aparelho</p>
+        </div> -->
+
+        <div class="ofcell-peliculas-search-container">
+          <div class="ofcell-peliculas-search-box">
+            <input
+              type="text"
+              id="ofcellSearchInput"
+              class="ofcell-peliculas-search-input"
+              placeholder="Pesquisar por modelo de celular..."
+            />
+            <span class="ofcell-peliculas-search-icon">🔍</span>
+          </div>
+        </div>
+
+        <div class="ofcell-peliculas-table-container">
+          <table class="ofcell-peliculas-table" id="ofcellCompatibilityTable">
+            <thead>
+              <tr>
+                <th><img src="https://ofcell123.com.br/wp-content/uploads/2022/07/WhatsApp-Image-2022-07-04-at-19.02.44-1024x682.jpeg" alt="Películas 3D" style="width: 120px; height: 100%;"></th>
+                <th style="color: #000; font-size: 20px;">Películas 3D Compatíveis</th>
+              </tr>
+            </thead>
+            <tbody id="ofcellTableBody">
+              <!-- Dados serão carregados via JavaScript -->
+            </tbody>
+          </table>
+
+          <div
+            id="ofcellLoadingIndicator"
+            class="ofcell-peliculas-loading"
+            style="display: none"
+          >
+            🔄 Carregando...
+          </div>
+
+          <div
+            id="ofcellNoResults"
+            class="ofcell-peliculas-no-results"
+            style="display: none"
+          >
+            😔 Nenhum resultado encontrado
+          </div>
+
+          <div
+            id="ofcellError"
+            class="ofcell-peliculas-error"
+            style="display: none"
+          >
+            ❌ Erro ao carregar dados
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Configuração da API
+      const OFCELL_API_BASE = "https://ofcell123-tabelafree.katrocloud.com/api";
+      // const OFCELL_API_BASE = "http://localhost:3005/api";
+
+      // Estado da aplicação
+      let ofcellSearchTimeout;
+      let ofcellAllData = [];
+
+      // Elementos DOM
+      const ofcellSearchInput = document.getElementById("ofcellSearchInput");
+      const ofcellTableBody = document.getElementById("ofcellTableBody");
+      const ofcellLoadingIndicator = document.getElementById(
+        "ofcellLoadingIndicator"
+      );
+      const ofcellNoResults = document.getElementById("ofcellNoResults");
+      const ofcellError = document.getElementById("ofcellError");
+
+      // Inicializar aplicação
+      document.addEventListener("DOMContentLoaded", function () {
+        ofcellLoadInitialData();
+        ofcellSetupEventListeners();
+      });
+
+      // Configurar event listeners
+      function ofcellSetupEventListeners() {
+        // Busca com debounce
+        ofcellSearchInput.addEventListener("input", function () {
+          const searchTerm = this.value.trim();
+
+          if (ofcellSearchTimeout) {
+            clearTimeout(ofcellSearchTimeout);
+          }
+
+          if (searchTerm === "") {
+            ofcellLoadInitialData();
+            return;
+          }
+
+          ofcellSearchTimeout = setTimeout(() => {
+            ofcellPerformSearch(searchTerm);
+          }, 300);
+        });
+      }
+
+      // Carregar dados iniciais
+      async function ofcellLoadInitialData() {
+        try {
+          console.log("🔄 Carregando dados iniciais...");
+          ofcellShowLoading();
+
+          const response = await fetch(`${OFCELL_API_BASE}/peliculas`);
+          console.log("📡 Resposta da API:", response.status);
+
+          const result = await response.json();
+          console.log("📊 Dados recebidos:", result);
+
+          if (result.success) {
+            ofcellAllData = result.data;
+            console.log("✅ Dados carregados:", ofcellAllData.length, "itens");
+            ofcellDisplayData(ofcellAllData);
+          } else {
+            console.error("❌ Erro na API:", result);
+            ofcellShowError("Erro ao carregar dados");
+          }
+        } catch (error) {
+          console.error("❌ Erro ao carregar dados:", error);
+          ofcellShowError("Erro de conexão com o servidor");
+        }
+      }
+
+      // Realizar busca
+      async function ofcellPerformSearch(searchTerm) {
+        try {
+          ofcellShowLoading();
+
+          const response = await fetch(
+            `${OFCELL_API_BASE}/search?q=${encodeURIComponent(
+              searchTerm
+            )}&limit=8`
+          );
+          const result = await response.json();
+
+          if (result.success) {
+            ofcellDisplayData(result.data);
+          } else {
+            ofcellShowError("Erro na busca");
+          }
+        } catch (error) {
+          console.error("Erro na busca:", error);
+          ofcellShowError("Erro de conexão");
+        }
+      }
+
+      // Exibir dados na tabela
+      function ofcellDisplayData(data) {
+        console.log("🎨 Renderizando dados:", data.length, "itens");
+        ofcellHideAllMessages();
+
+        if (data.length === 0) {
+          console.log("⚠️ Nenhum dado para exibir");
+          ofcellShowNoResults();
+          return;
+        }
+
+        ofcellTableBody.innerHTML = "";
+        console.log("🔄 Processando", data.length, "películas...");
+
+        data.forEach((pelicula, index) => {
+          console.log(`📱 Película ${index + 1}:`, pelicula.modelo);
+          const row = document.createElement("tr");
+
+          // Verificar se é VIP (pode ser boolean ou string)
+          const isVip =
+            pelicula.vip === true ||
+            pelicula.vip === "true" ||
+            pelicula.vip === 1;
+
+          if (isVip) {
+            row.classList.add("ofcell-peliculas-vip-row");
+          }
+
+          // Processar compatibilidade (pode ser array ou string JSON)
+          let compatibilidadeArray = [];
+          if (pelicula.compatibilidade) {
+            if (Array.isArray(pelicula.compatibilidade)) {
+              compatibilidadeArray = pelicula.compatibilidade;
+            } else if (typeof pelicula.compatibilidade === "string") {
+              try {
+                compatibilidadeArray = JSON.parse(pelicula.compatibilidade);
+              } catch (e) {
+                // Se não for JSON válido, tratar como string simples
+                compatibilidadeArray = pelicula.compatibilidade
+                  .split(",")
+                  .map((item) => item.trim());
+              }
+            }
+          }
+
+          // Verificar se tem HTML personalizado
+          const hasHtmlContent =
+            pelicula.html_content && pelicula.html_content.trim().length > 0;
+
+          row.innerHTML = `
+                    <td>
+                        <div class="ofcell-peliculas-device-model">${
+                          pelicula.modelo || "N/A"
+                        }</div>
+                    </td>
+                    <td>
+                        ${
+                          hasHtmlContent
+                            ? // Renderizar HTML personalizado
+                              `<div class="ofcell-peliculas-html-content">${pelicula.html_content}</div>`
+                            : // Renderização padrão
+                            isVip
+                            ? '<a class="ofcell-peliculas-vip-indicator" href="https://vip.ofcell123.com.br/page/planos" target="_blank" rel="noopener noreferrer">Disponível apenas na tabela VIP</a>'
+                            : `<div class="ofcell-peliculas-compatible-devices">
+                                    ${
+                                      compatibilidadeArray.length > 0
+                                        ? compatibilidadeArray
+                                            .map(
+                                              (device) =>
+                                                `<span class="ofcell-peliculas-device-tag">${device}/</span>`
+                                            )
+                                            .join("")
+                                        : '<span class="ofcell-peliculas-device-tag">Sem compatibilidade</span>'
+                                    }
+                                </div>`
+                        }
+                    </td>
+                `;
+
+          ofcellTableBody.appendChild(row);
+        });
+
+        console.log(
+          "✅ Renderização concluída!",
+          ofcellTableBody.children.length,
+          "linhas adicionadas"
+        );
+      }
+
+      // Mostrar loading
+      function ofcellShowLoading() {
+        ofcellHideAllMessages();
+        ofcellLoadingIndicator.style.display = "block";
+        ofcellTableBody.style.display = "none";
+      }
+
+      // Mostrar erro
+      function ofcellShowError(message) {
+        ofcellHideAllMessages();
+        ofcellError.textContent = message;
+        ofcellError.style.display = "block";
+      }
+
+      // Mostrar sem resultados
+      function ofcellShowNoResults() {
+        ofcellHideAllMessages();
+        ofcellNoResults.style.display = "block";
+      }
+
+      // Esconder todas as mensagens
+      function ofcellHideAllMessages() {
+        ofcellLoadingIndicator.style.display = "none";
+        ofcellNoResults.style.display = "none";
+        ofcellError.style.display = "none";
+        ofcellTableBody.style.display = "";
+      }
+    </script>
+  </body>
+</html>
